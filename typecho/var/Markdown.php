@@ -20,11 +20,10 @@ class Markdown
     {
         static $parser;
 
-        if (empty($parser)) {
-            $parser = new MarkdownExtraExtended();
+         if (empty($parser)) {
+            $parser =new Parsedown();
         }
-
-        return $parser->transform($text);
+        return $parser->text($text);
     }
 }
 
