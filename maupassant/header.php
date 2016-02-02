@@ -13,11 +13,12 @@
             'tag'       =>  _t('标签 %s 下的文章'),
             'author'    =>  _t('%s 发布的文章')
         ), '', ' - '); ?><?php $this->options->title(); ?></title>
+    <link rel="stylesheet" href="<?php $this->options->adminUrl('css/normalize.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>">
+    <script src="/usr/plugins/GoogleCodePrettify/prettify.js" type="text/javascript"></script>
 	<!--[if lt IE 9]>
     <script type="text/javascript" src="<?php $this->options->themeUrl('javascript/html5shiv.js'); ?>"></script>
     <![endif]-->
-    <link rel="stylesheet" href="<?php $this->options->adminUrl('css/normalize.css'); ?>">
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>">
     <?php $this->header("generator=&template=&"); ?>
 </head>
 <body>
