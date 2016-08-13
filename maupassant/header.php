@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="<?php $this->options->charset(); ?>" />
-	<meta name="viewport" content="width=device-width,user-scalable=no">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
     <title><?php $this->archiveTitle(array(
             'category'  =>  _t('分类 %s 下的文章'),
             'search'    =>  _t('包含关键字 %s 的文章'),
@@ -15,13 +15,15 @@
         ), '', ' - '); ?><?php $this->options->title(); ?></title>
     <link rel="stylesheet" href="<?php $this->options->adminUrl('css/normalize.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('style.css'); ?>">
+    <script src="/usr/plugins/MathJax/MathJax.js?config=default" type="text/javascript"></script>
     <script src="/usr/plugins/GoogleCodePrettify/prettify.js" type="text/javascript"></script>
-	<!--[if lt IE 9]>
+    <!--[if lt IE 9]>
     <script type="text/javascript" src="<?php $this->options->themeUrl('javascript/html5shiv.js'); ?>"></script>
+    <script src="<?php $this->options->themeUrl(); ?>js/prettify.js" type="text/javascript"></script>
     <![endif]-->
     <?php $this->header("generator=&template=&"); ?>
 </head>
-<body>
+<body onload="prettyPrint()">
 
 <header id="header" class="clearfix">
     <div class="container">
@@ -38,16 +40,16 @@
                         <?php $this->options->title() ?>
                     </a>
                 <?php endif; ?>
-        	    <p class="description"><?php $this->options->description() ?></p>
+                <p class="description"><?php $this->options->description() ?></p>
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
                     <a class="<?php if($this->is('index')): ?>current<?php endif; ?> <?php if($this->is('post')): ?>current<?php endif; ?>" href="<?php $this->options->siteUrl(); ?>"><?php _e('博客'); ?></a>
-					<?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
-					<?php while($pages->next()): ?>
-					<a<?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
-					<?php endwhile; ?>
-				</nav>
+                    <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
+                    <?php while($pages->next()): ?>
+                    <a<?php if($this->is('page', $pages->slug)): ?> class="current"<?php endif; ?> href="<?php $pages->permalink(); ?>" title="<?php $pages->title(); ?>"><?php $pages->title(); ?></a>
+                    <?php endwhile; ?>
+                </nav>
             </div>
         </div>
     </div>
